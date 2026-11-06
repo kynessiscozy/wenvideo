@@ -17,6 +17,13 @@ export const FUNNEL_PERSONAS = Object.freeze({
     circle: '是猫师傅先替你圈出来的',
     hooksTitle: '猫 师 傅 先 说 三 句',
     byline: 'Swing猫师傅正在为你排盘…',
+    // 预告页皮肤：颜色只在这里定义，funnel-teaser 按人设取用，不再写死任何角色的配色。
+    palette: Object.freeze({
+      bg: '#0a1322', bgRgb: '10,19,34', ink: '#fdf6e0', inkRgb: '253,246,224',
+      soft: '#e9dfc2', dim: '#c9bc97', gold: '#e8b34b', goldRgb: '232,179,75', goldSoft: '#f7d98b',
+      cardBg: 'rgba(17,28,46,.88)', ctaTop: '#a87f26', ctaBottom: '#71550f',
+      ctaShade: 'rgba(24,17,4,.55)', note: 'rgba(201,188,151,.8)',
+    }),
   }),
 });
 
