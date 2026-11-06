@@ -22,7 +22,7 @@ export const FUNNEL_PERSONAS = Object.freeze({
       bg: '#0a1322', bgRgb: '10,19,34', ink: '#fdf6e0', inkRgb: '253,246,224',
       soft: '#e9dfc2', dim: '#c9bc97', gold: '#e8b34b', goldRgb: '232,179,75', goldSoft: '#f7d98b',
       cardBg: 'rgba(17,28,46,.88)', ctaTop: '#a87f26', ctaBottom: '#71550f',
-      ctaShade: 'rgba(24,17,4,.55)', note: 'rgba(201,188,151,.8)',
+      ctaShade: 'rgba(24,17,4,.55)', note: 'rgba(201,188,151,.8)', ctaSpacing: '.08em',
     }),
   }),
 });

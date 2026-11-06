@@ -66,7 +66,7 @@ function ensureStyle(p) {
     color:${p.dim};font:inherit;font-size:13.5px;letter-spacing:.1em;cursor:pointer;padding:10px;text-decoration:underline;text-underline-offset:4px;}
   #${OVERLAY_ID} .ft-cta{display:block;width:100%;margin-top:26px;appearance:none;border:1px solid ${p.gold};cursor:pointer;
     position:sticky;bottom:12px;z-index:2;background:linear-gradient(180deg,${p.ctaTop},${p.ctaBottom});color:#fff;font:inherit;
-    font-size:17px;letter-spacing:.08em;padding:16px;border-radius:8px;
+    font-size:17px;letter-spacing:${p.ctaSpacing};padding:16px;border-radius:8px;
     box-shadow:inset 0 0 0 3px ${p.ctaShade},inset 0 0 0 4px rgba(${p.goldRgb},.45),0 14px 34px rgba(0,0,0,.6);}
   #${OVERLAY_ID} .ft-free{text-align:center;font-size:12.5px;color:${p.dim};margin-top:12px;letter-spacing:.12em;}
   #${OVERLAY_ID} .ft-note{font-size:12.5px;color:${p.note};margin-top:10px;line-height:1.8;}
