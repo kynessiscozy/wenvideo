@@ -1,5 +1,5 @@
 /* 漏斗预告页（P2）：从 funnel.html 进来的访客，推演完成后先看一页
-   「焱绒预告」——真排盘 + 日主基调 + 三个引擎事实钩子 + 报告目录，
+   「猫师傅预告」——真排盘 + 日主基调 + 三个引擎事实钩子 + 报告目录，
    再一键进入完整报告。全程免费，无任何锁定与收费元素。
    所有数字与干支都取自 window._ctx 的真实推演结果，不另造解读。
    仅由当前问卷交接调用，且要求 applied && !teasered；预告页本身
@@ -35,41 +35,41 @@ function ensureStyle() {
   const style = document.createElement('style');
   style.id = STYLE_ID;
   style.textContent = `
-  #${OVERLAY_ID}{position:fixed;inset:0;z-index:1200;background:#0c0908;color:#f3e9dc;
+  #${OVERLAY_ID}{position:fixed;inset:0;z-index:1200;background:#0a1322;color:#fdf6e0;
     font-family:"Noto Serif SC","Songti SC",serif;overflow-y:auto;padding:26px 20px calc(30px + env(safe-area-inset-bottom));}
   #${OVERLAY_ID} .ft-wrap{max-width:620px;margin:0 auto;}
   #${OVERLAY_ID} .ft-hero{width:100%;height:300px;object-fit:cover;object-position:center 22%;border-radius:16px;
-    border:1px solid rgba(216,162,74,.32);margin-bottom:18px;background:#000;display:block;}
+    border:1px solid rgba(232,179,75,.32);margin-bottom:18px;background:#000;display:block;}
   #${OVERLAY_ID} .ft-head{display:flex;align-items:center;gap:12px;margin-bottom:6px;}
-  #${OVERLAY_ID} .ft-head img{width:46px;height:46px;border-radius:50%;border:1px solid rgba(216,162,74,.5);object-fit:cover;background:#000;}
-  #${OVERLAY_ID} .ft-kicker{font-size:12px;letter-spacing:.3em;color:#e8c595;}
+  #${OVERLAY_ID} .ft-head img{width:46px;height:46px;border-radius:50%;border:1px solid rgba(232,179,75,.5);object-fit:cover;background:#000;}
+  #${OVERLAY_ID} .ft-kicker{font-size:12px;letter-spacing:.3em;color:#f7d98b;}
   #${OVERLAY_ID} .ft-title{font-size:21px;font-weight:700;margin-top:2px;}
   #${OVERLAY_ID} .ft-open{font-size:16px;line-height:1.9;margin:14px 0 4px;}
-  #${OVERLAY_ID} .ft-open .hl{color:#d8a24a;}
-  #${OVERLAY_ID} .ft-card{background:rgba(26,18,16,.88);border:1px solid rgba(216,162,74,.32);border-radius:16px;padding:20px;margin-top:28px;}
-  #${OVERLAY_ID} .ft-card h3{font-size:13px;letter-spacing:.28em;color:#e8c595;margin-bottom:12px;font-weight:600;}
+  #${OVERLAY_ID} .ft-open .hl{color:#e8b34b;}
+  #${OVERLAY_ID} .ft-card{background:rgba(17,28,46,.88);border:1px solid rgba(232,179,75,.32);border-radius:16px;padding:20px;margin-top:28px;}
+  #${OVERLAY_ID} .ft-card h3{font-size:13px;letter-spacing:.28em;color:#f7d98b;margin-bottom:12px;font-weight:600;}
   #${OVERLAY_ID} .ft-pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;text-align:center;}
-  #${OVERLAY_ID} .ft-pillars .pl{background:rgba(243,233,220,.05);border-radius:10px;padding:10px 4px;}
+  #${OVERLAY_ID} .ft-pillars .pl{background:rgba(253,246,224,.05);border-radius:10px;padding:10px 4px;}
   #${OVERLAY_ID} .ft-pillars .pl b{display:block;font-size:20px;letter-spacing:.1em;}
-  #${OVERLAY_ID} .ft-pillars .pl span{font-size:11px;color:#c9bba6;letter-spacing:.2em;}
-  #${OVERLAY_ID} .ft-meta{margin-top:12px;font-size:14px;line-height:1.9;color:#e6dac6;}
-  #${OVERLAY_ID} .ft-hook{font-size:15.5px;line-height:1.95;padding:10px 0;border-bottom:1px dashed rgba(216,162,74,.25);}
+  #${OVERLAY_ID} .ft-pillars .pl span{font-size:11px;color:#c9bc97;letter-spacing:.2em;}
+  #${OVERLAY_ID} .ft-meta{margin-top:12px;font-size:14px;line-height:1.9;color:#e9dfc2;}
+  #${OVERLAY_ID} .ft-hook{font-size:15.5px;line-height:1.95;padding:10px 0;border-bottom:1px dashed rgba(232,179,75,.25);}
   #${OVERLAY_ID} .ft-hook:last-child{border-bottom:none;}
-  #${OVERLAY_ID} .ft-hook b{color:#d8a24a;}
-  #${OVERLAY_ID} .ft-toc{list-style:none;font-size:15px;line-height:2.05;color:#e6dac6;}
-  #${OVERLAY_ID} .ft-toc li::before{content:"·";color:#d8a24a;margin-right:8px;}
+  #${OVERLAY_ID} .ft-hook b{color:#e8b34b;}
+  #${OVERLAY_ID} .ft-toc{list-style:none;font-size:15px;line-height:2.05;color:#e9dfc2;}
+  #${OVERLAY_ID} .ft-toc li::before{content:"·";color:#e8b34b;margin-right:8px;}
   #${OVERLAY_ID} .ft-close{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));right:16px;z-index:3;
-    width:38px;height:38px;border-radius:50%;border:1px solid rgba(216,162,74,.55);cursor:pointer;
-    background:rgba(12,9,8,.82);color:#f3e9dc;font-size:22px;line-height:1;}
-  #${OVERLAY_ID} .ft-close:focus-visible,#${OVERLAY_ID} .ft-cta:focus-visible,#${OVERLAY_ID} .ft-skip:focus-visible{outline:2px solid #e8c595;outline-offset:3px;}
+    width:38px;height:38px;border-radius:50%;border:1px solid rgba(232,179,75,.55);cursor:pointer;
+    background:rgba(10,19,34,.82);color:#fdf6e0;font-size:22px;line-height:1;}
+  #${OVERLAY_ID} .ft-close:focus-visible,#${OVERLAY_ID} .ft-cta:focus-visible,#${OVERLAY_ID} .ft-skip:focus-visible{outline:2px solid #f7d98b;outline-offset:3px;}
   #${OVERLAY_ID} .ft-skip{display:block;width:100%;margin-top:10px;appearance:none;border:0;background:none;
-    color:#c9bba6;font:inherit;font-size:13.5px;letter-spacing:.1em;cursor:pointer;padding:10px;text-decoration:underline;text-underline-offset:4px;}
-  #${OVERLAY_ID} .ft-cta{display:block;width:100%;margin-top:26px;appearance:none;border:1px solid #c89b5a;cursor:pointer;
-    position:sticky;bottom:12px;z-index:2;background:linear-gradient(180deg,#8a2015,#5f130d);color:#fff;font:inherit;
-    font-size:17px;letter-spacing:.3em;padding:16px;border-radius:8px;
-    box-shadow:inset 0 0 0 3px rgba(20,8,5,.55),inset 0 0 0 4px rgba(200,155,90,.45),0 14px 34px rgba(0,0,0,.6);}
-  #${OVERLAY_ID} .ft-free{text-align:center;font-size:12.5px;color:#c9bba6;margin-top:12px;letter-spacing:.12em;}
-  #${OVERLAY_ID} .ft-note{font-size:12.5px;color:rgba(201,187,166,.8);margin-top:10px;line-height:1.8;}
+    color:#c9bc97;font:inherit;font-size:13.5px;letter-spacing:.1em;cursor:pointer;padding:10px;text-decoration:underline;text-underline-offset:4px;}
+  #${OVERLAY_ID} .ft-cta{display:block;width:100%;margin-top:26px;appearance:none;border:1px solid #e8b34b;cursor:pointer;
+    position:sticky;bottom:12px;z-index:2;background:linear-gradient(180deg,#a87f26,#71550f);color:#fff;font:inherit;
+    font-size:17px;letter-spacing:.08em;padding:16px;border-radius:8px;
+    box-shadow:inset 0 0 0 3px rgba(24,17,4,.55),inset 0 0 0 4px rgba(232,179,75,.45),0 14px 34px rgba(0,0,0,.6);}
+  #${OVERLAY_ID} .ft-free{text-align:center;font-size:12.5px;color:#c9bc97;margin-top:12px;letter-spacing:.12em;}
+  #${OVERLAY_ID} .ft-note{font-size:12.5px;color:rgba(201,188,151,.8);margin-top:10px;line-height:1.8;}
   `;
   document.head.appendChild(style);
 }
@@ -113,7 +113,7 @@ function reportToc() {
     const score = (sec.querySelector('.bs-head')?.textContent || '').trim().replace(/\s+/g, ' ');
     out.push({ label, head, score });
   }
-  if (out.length) out.push({ label: '工具', head: '十二位大师工具箱：合盘、择日、塔罗、风水都在这一页', score: '' });
+  if (out.length) out.push({ label: '工具', head: '猫师傅工具箱：合盘、择日、塔罗、风水都在这一页', score: '' });
   return out;
 }
 
@@ -199,9 +199,9 @@ export function showFunnelTeaserIfNeeded() {
     </div>
     ${hooks.length ? `<div class="ft-card"><h3>${PERSONA.hooksTitle}</h3>${hooks.map(h => `<p class="ft-hook">${h}</p>`).join('')}</div>` : ''}
     ${toc.length ? `<div class="ft-card"><h3>完 整 报 告 目 录</h3><ul class="ft-toc">${toc.map(t => `<li><b>${t.label}</b> — ${t.head}${t.score ? `（${t.score}）` : ''}</li>`).join('')}</ul></div>` : ''}
-    <button class="ft-cta" type="button">继续看完整报告</button>
+    <button class="ft-cta" type="button">查看完整报告（限时免费）</button>
     <button class="ft-skip" type="button">跳过预告，直接看报告</button>
-    <p class="ft-free">全程免费 · 无隐藏收费 · 报告已在下方备好</p>
+    <p class="ft-free">限时免费开放中 · 无隐藏收费 · 报告已在下方备好</p>
   </div>`;
   document.body.appendChild(el);
   document.body.style.overflow = 'hidden';
