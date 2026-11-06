@@ -1,93 +1,16 @@
 import { focusSafely } from './focus.js';
+import { SWING } from '../character/swing.js';
 import { syncBrowserThemeColor } from './theme-color.js';
 import { themeForPersona } from './entry-personas.js';
-import { JIANGJIANG } from '../character/wenwen.js';
-import { MOON_FOX } from '../character/moon-fox.js';
-import { EARTHFIRE_SOVEREIGN } from '../character/earthfire-sovereign.js';
-import { JADE_EMPRESS } from '../character/jade-empress.js';
-import { QINGLAN } from '../character/qinglan.js';
-import { XINGLING } from '../character/xingling.js';
-import { LUYE } from '../character/luye.js';
-import { SUYAN } from '../character/suyan.js';
-import { RONGRONG } from '../character/rongrong.js';
-import { ZHIYA } from '../character/zhiya.js';
-import { LEIZI } from '../character/leizi.js';
-import { MUSE } from '../character/muse.js';
 
 // One registry supplies the reel, scenes and report styling.
 // New characters need only add another entry; choices remain page-local.
 export const HOME_THEMES = Object.freeze({
-  wenwen: Object.freeze({
-    trait: Object.freeze({ label: '温柔', description: '温和细腻，善于倾听与陪伴。', mark: '柔', color: '#ecc1ae' }),
-    reportLead: '别急，我们慢慢看。',
-    character: JIANGJIANG,
-    backdrop: Object.freeze({ wide: './art/sacred-study-wide.webp', mobile: './art/sacred-study-mobile.webp' }),
-  }),
-  moonfox: Object.freeze({
-    trait: Object.freeze({ label: '神秘', description: '敏锐内敛，总想探索未知。', mark: '秘', color: '#b9dbef' }),
-    reportLead: '有意思，线索已经浮现。',
-    character: MOON_FOX,
-    backdrop: Object.freeze({ wide: './art/moon-fox-study-wide.webp', mobile: './art/moon-fox-study-mobile.webp' }),
-  }),
-  leizi: Object.freeze({
-    trait: Object.freeze({ label: '决断', description: '看清大势，敢于落子定局。', mark: '雷', color: '#f2c14e' }),
-    reportLead: '先看天势，再定落子。',
-    character: LEIZI,
-    backdrop: Object.freeze({ wide: './art/leizi-hall-wide.webp', mobile: './art/leizi-hall-mobile.webp' }),
-  }),
-  muse: Object.freeze({
-    trait: Object.freeze({ label: '灵感', description: '念头落下之前，先接住它。', mark: '羽', color: '#e6cf9a' }),
-    reportLead: '让灵感先落在你身上。',
-    character: MUSE,
-    backdrop: Object.freeze({ wide: './art/muse-hall-wide.webp', mobile: './art/muse-hall-mobile.webp' }),
-  }),
-  diyan: Object.freeze({
-    trait: Object.freeze({ label: '威严', description: '坚定果断，敢于为选择担当。', mark: '威', color: '#ec8278' }),
-    reportLead: '先定根基，再看全局。',
-    character: EARTHFIRE_SOVEREIGN,
-    backdrop: Object.freeze({ wide: './art/earthfire-hall-wide.webp', mobile: './art/earthfire-hall-mobile.webp' }),
-  }),
-  yuchen: Object.freeze({
-    trait: Object.freeze({ label: '从容', description: '沉静笃定，遇事自有节奏。', mark: '容', color: '#d9d3a9' }),
-    reportLead: '静下心，先看这一处。',
-    character: JADE_EMPRESS,
-    backdrop: Object.freeze({ wide: './art/yuchen-hall-wide.webp', mobile: './art/yuchen-hall-mobile.webp' }),
-  }),
-  qinglan: Object.freeze({
-    trait: Object.freeze({ label: '洒脱', description: '随性而不随波，坦然向前。', mark: '洒', color: '#a9d8d0' }),
-    reportLead: '不妨换个角度。',
-    character: QINGLAN,
-    backdrop: Object.freeze({ wide: './art/qinglan-room-wide.webp', mobile: './art/qinglan-room-mobile.webp' }),
-  }),
-  xingling: Object.freeze({
-    trait: Object.freeze({ label: '魅惑', description: '自有吸引力，懂得欣赏生活。', mark: '魅', color: '#d4b7f2' }),
-    reportLead: '细看，线索藏在这里。',
-    character: XINGLING,
-    backdrop: Object.freeze({ wide: './art/xingling-room-wide.webp', mobile: './art/xingling-room-mobile.webp' }),
-  }),
-  luye: Object.freeze({
-    trait: Object.freeze({ label: '好奇', description: '对新鲜事物，总想多看一眼。', mark: '奇', color: '#e8c595' }),
-    reportLead: '发现一个有趣的起点。',
-    character: LUYE,
-    backdrop: Object.freeze({ wide: './art/luye-room-wide.webp', mobile: './art/luye-room-mobile.webp' }),
-  }),
-  suyan: Object.freeze({
-    trait: Object.freeze({ label: '自信', description: '相信自己的眼光，敢于表达。', mark: '信', color: '#e8b4c1' }),
-    reportLead: '先把重点抓出来。',
-    character: SUYAN,
-    backdrop: Object.freeze({ wide: './art/suyan-room-wide.webp', mobile: './art/suyan-room-mobile.webp' }),
-  }),
-  rongrong: Object.freeze({
-    trait: Object.freeze({ label: '可爱', description: '热情真诚，善于发现小美好。', mark: '萌', color: '#f0ad78' }),
-    reportLead: '把复杂的事拆小，也给自己一点暖意。',
-    character: RONGRONG,
-    backdrop: Object.freeze({ wide: './art/rongrong-room-wide.webp', mobile: './art/rongrong-room-mobile.webp' }),
-  }),
-  zhiya: Object.freeze({
-    trait: Object.freeze({ label: '天真', description: '保有想象力，也相信惊喜。', mark: '真', color: '#f0dc90' }),
-    reportLead: '带着好奇出发，答案会慢慢展开。',
-    character: ZHIYA,
-    backdrop: Object.freeze({ wide: './art/zhiya-room-wide.webp', mobile: './art/zhiya-room-mobile.webp' }),
+  swing: Object.freeze({
+    trait: Object.freeze({ label: '直觉', description: '先嗅到风向，再慢慢看盘。', mark: '喵', color: '#e8b34b' }),
+    reportLead: '生日报来，本喵给你看猫格。',
+    character: SWING,
+    backdrop: Object.freeze({ wide: './art/swing-hall-wide.webp', mobile: './art/swing-hall-mobile.webp' }),
   }),
 });
 

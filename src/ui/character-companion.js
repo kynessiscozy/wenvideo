@@ -1,10 +1,11 @@
-import { JIANGJIANG, applyCharacterAssets } from '../character/wenwen.js';
+import { applyCharacterAssets } from '../character/wenwen.js';
+import { SWING } from '../character/swing.js';
 import { CHAT_MASTER } from '../character/chat-master.js';
 import { mountCharacterPrompt } from '../character/companion.js';
 
 /** Connect a reusable character to exploration and the report's assistant. */
 export function initCharacterCompanion({
-  character = JIANGJIANG,
+  character = SWING,
   openForm = () => {},
   openAsk = () => {},
   deferHomeAssets = false,

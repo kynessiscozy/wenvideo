@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-funnel-persona="moonfox">
+<html lang="zh-CN" data-funnel-persona="swing">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>问问大师 · 命盘厅</title>
-<meta name="description" content="选择同行引路人，回答几个小问题，探索你的命盘报告。">
-<meta name="theme-color" content="#090f17">
+<title>Swing猫师傅 · 命盘厅</title>
+<meta name="description" content="Swing猫师傅坐堂排盘：回答几个小问题，看你的猫格命盘报告。">
+<meta name="theme-color" content="#0a1322">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="manifest" href="./manifest.webmanifest">
@@ -14,15 +14,13 @@
 <script>
   // Apply the saved palette before the page is painted, including in standalone PWA mode.
   (function () {
-    var backgrounds = { moonfox: '#090f17', diyan: '#130b0b', yuchen: '#10140e', xiyao: '#100c18', leizi: '#0a0e1a', muse: '#10182b' };
+    var backgrounds = { swing: '#0a1322' };
     window.__wenSetFunnelTheme = function (key) {
-      if (!Object.prototype.hasOwnProperty.call(backgrounds, key)) key = 'moonfox';
+      if (!Object.prototype.hasOwnProperty.call(backgrounds, key)) key = 'swing';
       document.documentElement.dataset.funnelPersona = key;
       document.querySelector('meta[name="theme-color"]').setAttribute('content', backgrounds[key]);
     };
-    var saved;
-    try { saved = localStorage.getItem('wen_funnel_persona'); } catch (_) {}
-    window.__wenSetFunnelTheme(saved);
+    window.__wenSetFunnelTheme('swing');
   })();
 </script>
 <script>
@@ -36,53 +34,13 @@
 </script>
 <style>
   /* Accent values match HOME_THEMES for the mapped report character. */
-  :root, html[data-funnel-persona="moonfox"]{
-    --bg:#090f17; --shade-rgb:9,15,23; --accent-rgb:185,219,239;
-    --panel:rgba(13,25,39,.84); --line:rgba(185,219,239,.38);
-    --gold:#b9dbef; --gold-soft:#d4e8f5; --red:#244e6c;
-    --button-top:#315d7a; --button-bottom:#18374e; --ink:#edf6fa; --ink-dim:#c2d4df;
-    --card:#111f2b; --card-on:#254358;
-    --backdrop-mobile:url('./art/moon-fox-study-mobile.webp'); --backdrop-wide:url('./art/moon-fox-study-wide.webp');
-  }
-  html[data-funnel-persona="diyan"]{
-    --bg:#130b0b; --shade-rgb:19,11,11; --accent-rgb:236,130,120;
-    --panel:rgba(30,15,14,.84); --line:rgba(236,130,120,.4);
-    --gold:#ec8278; --gold-soft:#f5c5bc; --red:#8a2015;
-    --button-top:#8a2015; --button-bottom:#5f130d; --ink:#fff1ed; --ink-dim:#dec3bb;
-    --card:#251411; --card-on:#4a211c;
-    --backdrop-mobile:url('./art/earthfire-hall-mobile.webp'); --backdrop-wide:url('./art/earthfire-hall-wide.webp');
-  }
-  html[data-funnel-persona="yuchen"]{
-    --bg:#10140e; --shade-rgb:16,20,14; --accent-rgb:217,211,169;
-    --panel:rgba(24,30,21,.84); --line:rgba(217,211,169,.4);
-    --gold:#d9d3a9; --gold-soft:#eee9cc; --red:#4d5936;
-    --button-top:#566440; --button-bottom:#313e26; --ink:#f5f5e9; --ink-dim:#d2d5bf;
-    --card:#1d251a; --card-on:#343f29;
-    --backdrop-mobile:url('./art/yuchen-hall-mobile.webp'); --backdrop-wide:url('./art/yuchen-hall-wide.webp');
-  }
-  html[data-funnel-persona="xiyao"]{
-    --bg:#100c18; --shade-rgb:16,12,24; --accent-rgb:212,183,242;
-    --panel:rgba(27,19,38,.84); --line:rgba(212,183,242,.4);
-    --gold:#d4b7f2; --gold-soft:#e8d8f7; --red:#5a3b73;
-    --button-top:#63477a; --button-bottom:#3e2a53; --ink:#f8f1ff; --ink-dim:#d8c8e4;
-    --card:#241b30; --card-on:#40304f;
-    --backdrop-mobile:url('./art/xingling-room-mobile.webp'); --backdrop-wide:url('./art/xingling-room-wide.webp');
-  }
-  html[data-funnel-persona="leizi"]{
-    --bg:#0a0e1a; --shade-rgb:10,14,26; --accent-rgb:242,193,78;
-    --panel:rgba(16,20,34,.84); --line:rgba(242,193,78,.38);
-    --gold:#f2c14e; --gold-soft:#fbe3a1; --red:#7a5c14;
-    --button-top:#a07d24; --button-bottom:#6b5316; --ink:#fdf6e0; --ink-dim:#ddd0ac;
-    --card:#161a29; --card-on:#2e2a1a;
-    --backdrop-mobile:url('./art/leizi-hall-mobile.webp'); --backdrop-wide:url('./art/leizi-hall-wide.webp');
-  }
-  html[data-funnel-persona="muse"]{
-    --bg:#10182b; --shade-rgb:16,24,43; --accent-rgb:230,207,154;
-    --panel:rgba(20,28,48,.84); --line:rgba(230,207,154,.38);
-    --gold:#e6cf9a; --gold-soft:#f4e7c3; --red:#6b5a2e;
-    --button-top:#a68d4e; --button-bottom:#77622f; --ink:#faf3e0; --ink-dim:#d8d0b8;
-    --card:#171f33; --card-on:#2c3350;
-    --backdrop-mobile:url('./art/muse-hall-mobile.webp'); --backdrop-wide:url('./art/muse-hall-wide.webp');
+  :root, html[data-funnel-persona="swing"]{
+    --bg:#0a1322; --shade-rgb:10,19,34; --accent-rgb:232,179,75;
+    --panel:rgba(15,26,44,.84); --line:rgba(232,179,75,.38);
+    --gold:#e8b34b; --gold-soft:#f7d98b; --red:#7a5a14;
+    --button-top:#a87f26; --button-bottom:#71550f; --ink:#fdf6e0; --ink-dim:#ded2ae;
+    --card:#131f33; --card-on:#2c2a1a;
+    --backdrop-mobile:url('./art/swing-hall-mobile.webp'); --backdrop-wide:url('./art/swing-hall-wide.webp');
   }
   *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   html,body{height:100%}
@@ -294,25 +252,12 @@
 <!-- 入口门 -->
 <section class="screen active" id="s-entry">
   <video class="entry-video" id="entryVideo" autoplay muted loop playsinline preload="auto"
-         poster="./art/yuebai-lord.webp" src="./art/yuebai-entry.mp4" aria-label="月白"></video>
+         poster="./art/swing-lord.webp" src="./art/swing-entry.mp4?v=70" aria-label="Swing猫师傅"></video>
   <div class="entry-shade"></div>
-  <div class="persona-switch">
-    <button type="button" class="persona-toggle" id="personaToggle" aria-expanded="false" aria-controls="personaOptions" aria-label="当前引路人：月白，切换引路人">
-      <span class="persona-label" id="personaLabel">月白</span><span>切换</span><span class="persona-chevron" aria-hidden="true">⌄</span>
-    </button>
-    <div class="persona-options" id="personaOptions" role="group" aria-label="选择引路人" hidden>
-      <button type="button" data-persona="diyan" aria-pressed="false"><span>焱绒<small>行动与优先级</small></span></button>
-      <button type="button" data-persona="yuchen" aria-pressed="false"><span>玉宸<small>节奏与资源</small></span></button>
-      <button type="button" data-persona="moonfox" class="on" aria-pressed="true"><span>月白<small>线索与依据</small></span></button>
-      <button type="button" data-persona="xiyao" aria-pressed="false"><span>夕瑶<small>关系与沟通</small></span></button>
-      <button type="button" data-persona="leizi" aria-pressed="false"><span>雷兹<small>格局与决断</small></span></button>
-      <button type="button" data-persona="muse" aria-pressed="false"><span>絮羽<small>灵感与表达</small></span></button>
-    </div>
-  </div>
   <div class="entry-inner">
     <button class="menu-btn" id="btnMenu" type="button" aria-label="打开菜单" title="菜单"><span></span><span></span><span></span></button>
     <div class="entry-bottom">
-      <p class="persona-perspective rise" style="--d:.2s"><b id="personaPerspective">月白 · 线索与依据</b><small>引路人改变阅读视角，不改变排盘结果</small></p>
+      <p class="persona-perspective rise" style="--d:.2s"><b id="personaPerspective">Swing猫师傅 · 猫格与直觉</b><small>引路人改变阅读视角，不改变排盘结果</small></p>
       <button class="cta rise" style="--d:.35s" id="btnStart">进入命盘厅</button>
       <p class="fineprint rise" style="--d:.5s">出生信息只保存在你的设备上，不上传、不注册<br>命理推演仅供文化研究与娱乐参考</p>
     </div>
@@ -321,7 +266,7 @@
 
 <!-- 沉浸过场 -->
 <section class="screen" id="s-immersion">
-  <video class="imm-video" id="immVideo" muted loop playsinline preload="auto" src="./art/yuebai-ritual.mp4" poster="./art/yuebai-lord.webp" aria-hidden="true"></video>
+  <video class="imm-video" id="immVideo" muted loop playsinline preload="auto" src="./art/swing-ritual.mp4?v=70" poster="./art/swing-lord.webp" aria-hidden="true"></video>
   <div class="imm-shade"></div>
   <div class="dim"></div>
   <button class="skip" id="btnSkipStory">跳过</button>
@@ -336,7 +281,7 @@
 
 <!-- 问卷 -->
 <section class="screen" id="s-quiz">
-  <video class="quiz-bg" src="./art/yuebai-quiz.mp4" poster="./art/yuebai-lord.webp" autoplay muted loop playsinline aria-hidden="true"></video>
+  <video class="quiz-bg" src="./art/swing-quiz.mp4?v=70" poster="./art/swing-lord.webp" autoplay muted loop playsinline aria-hidden="true"></video>
   <div class="quiz-shade"></div>
   <div class="qhead">
     <button class="back" id="btnBack" aria-label="上一题">‹</button>
@@ -344,7 +289,7 @@
     <div class="qcount" id="pcount"></div>
   </div>
   <div class="qbody">
-    <div class="qwho"><img id="qwhoImg" src="./art/yuebai-lord.webp" alt=""><span id="qwhoName">月白 问</span></div>
+    <div class="qwho"><img id="qwhoImg" src="./art/swing-lord.webp" alt=""><span id="qwhoName">Swing猫师傅 问</span></div>
     <h2 class="qtitle" id="qtitle"></h2>
     <p class="qhint" id="qhint"></p>
     <div id="qmount"></div>
@@ -354,18 +299,18 @@
 
 <!-- 问卷中段过场 -->
 <section class="screen" id="s-inter">
-  <video class="inter-video" muted loop playsinline preload="auto" src="./art/yuebai-quiz.mp4" poster="./art/yuebai-lord.webp" aria-hidden="true"></video>
+  <video class="inter-video" muted loop playsinline preload="auto" src="./art/swing-quiz.mp4?v=70" poster="./art/swing-lord.webp" aria-hidden="true"></video>
   <p class="inter-line">根基已定。<br>再问你几句。</p>
 </section>
 
 <!-- 加载仪式 -->
 <section class="screen" id="s-loading">
   <video class="load-video" autoplay muted loop playsinline preload="auto"
-         poster="./art/yuebai-lord.webp" src="./art/yuebai-ritual.mp4" aria-hidden="true"></video>
+         poster="./art/swing-lord.webp" src="./art/swing-ritual.mp4?v=70" aria-hidden="true"></video>
   <div class="load-shade"></div>
   <div class="load-inner">
-    <img id="loadAvatar" src="./art/yuebai-lord.webp" alt="">
-    <p class="ltext" id="ltext">月白正在为你翻册…</p>
+    <img id="loadAvatar" src="./art/swing-lord.webp" alt="">
+    <p class="ltext" id="ltext">Swing猫师傅正在为你排盘…</p>
     <p class="lsub">问 问 大 师</p>
   </div>
 </section>
@@ -403,8 +348,8 @@
   <div class="modal-bg" data-fmclose></div>
   <div class="modal-sheet glass about-sheet" role="dialog" aria-modal="true" aria-labelledby="aboutTitle" tabindex="0">
     <button class="modal-close" type="button" data-fmclose aria-label="关闭关于">×</button>
-    <p class="about-kicker">ABOUT · 问问大师</p>
-    <h2 id="aboutTitle">关于问问大师</h2>
+    <p class="about-kicker">ABOUT · Swing猫师傅</p>
+    <h2 id="aboutTitle">关于Swing猫师傅</h2>
     <p class="about-lead">用不同的视角，给自己一点思考的空间。</p>
     <div class="about-section">
       <h3>在这里，你可以</h3>
@@ -424,10 +369,10 @@
     <div class="modal-close" data-fmclose>×</div>
     <div class="modal-title" style="text-align:center;margin-bottom:16px">免责声明</div>
     <div style="font-size:.82em;line-height:1.85;color:var(--c-text)">
-      <p style="margin-bottom:12px">欢迎使用问问大师（V5.0）。在使用本应用前，请仔细阅读以下免责声明。使用本应用即表示您已充分理解并同意本声明的全部内容。</p>
+      <p style="margin-bottom:12px">欢迎使用Swing猫师傅（V5.0）。在使用本应用前，请仔细阅读以下免责声明。使用本应用即表示您已充分理解并同意本声明的全部内容。</p>
 
       <div style="font-weight:700;font-size:1.05em;margin:16px 0 8px;color:var(--c-text-hi)">一、内容性质与文化体验定位</div>
-      <p style="margin-bottom:10px">问问大师提供的内容包括东方命理、西方星相与生命灵数，以及塔罗、摇签、答案之书等工具；这些体验采用不同的传统文化、计算或随机呈现方式，仅供<b>文化体验、娱乐消遣与自我反思参考</b>，不构成任何形式的专业建议（包括但不限于法律、医疗、金融、心理咨询、职业规划等领域）。</p>
+      <p style="margin-bottom:10px">Swing猫师傅提供的内容包括东方命理、西方星相与生命灵数，以及塔罗、摇签、答案之书等工具；这些体验采用不同的传统文化、计算或随机呈现方式，仅供<b>文化体验、娱乐消遣与自我反思参考</b>，不构成任何形式的专业建议（包括但不限于法律、医疗、金融、心理咨询、职业规划等领域）。</p>
 
       <div style="font-weight:700;font-size:1.05em;margin:16px 0 8px;color:var(--c-text-hi)">二、不构成决策依据</div>
       <p style="margin-bottom:10px">本应用的推演结果不应作为人生重大决策（如投资、择业、婚恋、医疗、法律事务等）的唯一或主要依据。命盘与星盘是传统解读框架，不对人生事件作出确定预测。用户在做出任何重要决定前，应结合实际情况、咨询相关领域专业人士并独立判断。因依赖本应用内容而产生的任何直接或间接损失，本应用及开发者不承担任何责任。</p>
@@ -465,7 +410,7 @@
 <aside class="fm-drawer" id="fmDrawer" aria-label="菜单面板" aria-hidden="true" inert>
   <div class="fm-header">
     <img src="./icon.svg?v=35" alt="" class="fm-icon">
-    <span class="fm-title">问问大师</span>
+    <span class="fm-title">Swing猫师傅</span>
     <button class="fm-close" id="fmClose" type="button" aria-label="关闭">×</button>
   </div>
   <div class="fm-body">
@@ -486,7 +431,7 @@
   </div>
   <div class="fm-footer">
     <button type="button" data-panel="guide">使用指南</button>
-    <button type="button" data-panel="about">关于问问大师</button>
+    <button type="button" data-panel="about">关于Swing猫师傅</button>
     <button type="button" data-panel="disclaimer">免责声明</button>
   </div>
 </aside>
@@ -579,7 +524,7 @@
       {v:'other',t:'为别人',s:'填对方的生辰即可'}]},
     {key:'bd',title:'出生日期是哪一天？',hint:'按公历填写，盘面会自己换算农历与节气。',type:'date'},
     {key:'timeStr',title:'出生时间呢？',hint:'时辰定命宫与时柱。不知道也没关系，可以先跳过，报告会注明时柱待校。',type:'time',skip:true},
-    {key:'cityName',title:'出生在哪座城市？',hint:'用于真太阳时校正——这是问问大师比别家细的地方。填城市名即可，如「北京市」。',type:'text',ph:'如：北京市',skip:true,skipLabel:'稍后再填'},
+    {key:'cityName',title:'出生在哪座城市？',hint:'用于真太阳时校正——这是Swing猫师傅比别家细的地方。填城市名即可，如「北京市」。',type:'text',ph:'如：北京市',skip:true,skipLabel:'稍后再填'},
     {key:'gen',title:'性别是？',hint:'大运顺逆按性别排布，需要这一项。',type:'opts',options:[
       {v:'male',t:'男'},{v:'female',t:'女'}]},
     {key:'name',title:'怎么称呼？',hint:'报告里会这样称呼你（或对方）。不填也可以。',type:'text',ph:'名字或昵称',skip:true},
@@ -708,13 +653,13 @@
   $('#btnBack').addEventListener('click',function(){if(flowLocked)return;if(qi>0)transitionTo(qi-1,-1);});
 
   /* 加载仪式 → 交接 */
-  var LINES_BY_PERSONA={diyan:['焱绒正在为你排盘…','四柱落定，十神归位…','大运流年，逐年拆解中…','最后一处细节，焱绒再看一眼…'],yuchen:['玉宸正在为你排盘…','四柱落定，十神归位…','大运流年，逐年拆解中…','最后一处细节，再看一眼…'],moonfox:['月白正在为你翻册…','四柱落定，十神归位…','大运流年，逐年拆解中…','最后一页，月白再替你看一眼…'],xiyao:['夕瑶正在为你看盘…','四柱落定，十神归位…','大运流年，逐年拆解中…','最后一局，夕瑶再替你看一眼…'],leizi:['雷兹正在为你排盘…','四柱落定，十神归位…','大运流年，逐年拆解中…','最后一处，雷兹再替你看一眼…'],muse:['絮羽正在为你展翼…','四柱落定，十神归位…','大运流年，逐年拆解中…','最后一处，絮羽再替你看一眼…']};
+  var LINES_BY_PERSONA={swing:['Swing猫师傅正在为你排盘…','四柱落定，十神归位…','大运流年，逐年拆解中…','最后一处，猫师傅再替你看一眼…']};
   /* 引路人可以在问卷途中切换，加载文案必须在提交那一刻重新读取，
      不能沿用页面加载时缓存的 LINES。 */
   function personaKey(){
     var k=window.__wenSelectedPersona;
     try{k=k||localStorage.getItem('wen_funnel_persona');}catch(e){}
-    return LINES_BY_PERSONA[k]?k:'moonfox';
+    return LINES_BY_PERSONA[k]?k:'swing';
   }
   var finished=false,loadingInterval=null,handoffTimer=null;
   function completeHandoff(){
@@ -861,24 +806,9 @@ document.querySelectorAll('#fmPanels [data-fmclose]').forEach(function(el){
 
 /* 首屏右上角选择引路人，全漏斗换人。 */
 var PERSONAS={
-  diyan:{name:'焱绒',focus:'行动与优先级',entry:'./art/diyan-entry2.mp4',entryPoster:'./art/diyan-entry2-poster.webp',
-    ritual:'./art/diyan-ritual.mp4',ritualPoster:'./art/diyan-ritual-poster.webp',
-    quiz:'./art/diyan-quiz.mp4?v=66',poster:'./art/diyan-lord.webp',firstLine:'焱绒正在为你排盘…'},
-  yuchen:{name:'玉宸',focus:'节奏与资源',entry:'./art/yuchen-entry.mp4',entryPoster:'./art/yuchen-lord.webp',
-    ritual:'./art/yuchen-ritual.mp4',ritualPoster:'./art/yuchen-lord.webp',
-    quiz:'./art/yuchen-quiz.mp4?v=66',poster:'./art/yuchen-lord.webp',firstLine:'玉宸正在为你排盘…'},
-  moonfox:{name:'月白',focus:'线索与依据',entry:'./art/yuebai-entry.mp4',entryPoster:'./art/yuebai-lord.webp',
-    ritual:'./art/yuebai-ritual.mp4',ritualPoster:'./art/yuebai-lord.webp',
-    quiz:'./art/yuebai-quiz.mp4?v=66',poster:'./art/yuebai-lord.webp',firstLine:'月白正在为你翻册…'},
-  xiyao:{name:'夕瑶',focus:'关系与沟通',entry:'./art/xiyao-entry.mp4',entryPoster:'./art/xiyao-lord.webp',
-    ritual:'./art/xiyao-ritual.mp4',ritualPoster:'./art/xiyao-lord.webp',
-    quiz:'./art/xiyao-quiz.mp4?v=66',poster:'./art/xiyao-lord.webp',firstLine:'夕瑶正在为你看盘…'},
-  leizi:{name:'雷兹',focus:'格局与决断',entry:'./art/leizi-entry.mp4?v=64',entryPoster:'./art/leizi-lord.webp',
-    ritual:'./art/leizi-ritual.mp4?v=64',ritualPoster:'./art/leizi-lord.webp',
-    quiz:'./art/leizi-quiz.mp4?v=65',poster:'./art/leizi-lord.webp',firstLine:'雷兹正在为你排盘…'},
-  muse:{name:'絮羽',focus:'灵感与表达',entry:'./art/muse-entry.mp4?v=67',entryPoster:'./art/muse-lord.webp',
-    ritual:'./art/muse-ritual.mp4?v=68',ritualPoster:'./art/muse-lord.webp',
-    quiz:'./art/muse-quiz.mp4?v=67',poster:'./art/muse-lord.webp',firstLine:'絮羽正在为你展翼…'}
+  swing:{name:'Swing猫师傅',focus:'猫格与直觉',entry:'./art/swing-entry.mp4?v=70',entryPoster:'./art/swing-lord.webp',
+    ritual:'./art/swing-ritual.mp4?v=70',ritualPoster:'./art/swing-lord.webp',
+    quiz:'./art/swing-quiz.mp4?v=70',poster:'./art/swing-lord.webp',firstLine:'Swing猫师傅正在为你排盘…'}
 };
 function fmSetVideo(sel,src,poster){
   var v=fm$(sel);if(!v)return;
@@ -889,7 +819,7 @@ function fmSetVideo(sel,src,poster){
   }
 }
 function fmPersona(){
-  try{var p=localStorage.getItem('wen_funnel_persona');return PERSONAS[p]?p:'moonfox';}catch(e){return 'moonfox';}
+  return 'swing';
 }
 function fmApplyPersona(key){
   var P=PERSONAS[key];if(!P)return;
@@ -907,33 +837,8 @@ function fmApplyPersona(key){
   var qn=fm$('#qwhoName');if(qn)qn.textContent=P.name+' 问';
   var la=fm$('#loadAvatar');if(la)la.src=P.poster;
   var lt=fm$('#ltext');if(lt)lt.textContent=P.firstLine;
-  fm$('#personaLabel').textContent=P.name;
   fm$('#personaPerspective').textContent=P.name+' · '+P.focus;
-  fm$('#personaToggle').setAttribute('aria-label','当前引路人：'+P.name+'，切换引路人');
-  document.querySelectorAll('#personaOptions [data-persona]').forEach(function(b){
-    var on=b.getAttribute('data-persona')===key;
-    b.classList.toggle('on',on);b.setAttribute('aria-pressed',String(on));
-  });
 }
-var personaToggle=fm$('#personaToggle'),personaOptions=fm$('#personaOptions');
-function fmSetPersonaOpen(open,restoreFocus){
-  personaOptions.hidden=!open;
-  personaToggle.setAttribute('aria-expanded',String(open));
-  if(restoreFocus)personaToggle.focus();
-}
-personaToggle.addEventListener('click',function(){fmSetPersonaOpen(personaOptions.hidden,false);});
-document.querySelectorAll('#personaOptions [data-persona]').forEach(function(b){
-  b.addEventListener('click',function(){
-    fmApplyPersona(b.getAttribute('data-persona'));
-    fmSetPersonaOpen(false,true);
-  });
-});
-document.addEventListener('click',function(e){
-  if(!personaOptions.hidden&&!e.target.closest('.persona-switch'))fmSetPersonaOpen(false,false);
-});
-document.addEventListener('keydown',function(e){
-  if(e.key==='Escape'&&!personaOptions.hidden){e.preventDefault();fmSetPersonaOpen(false,true);}
-});
 fmApplyPersona(fmPersona());
 })();
 </script>

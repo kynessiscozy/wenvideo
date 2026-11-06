@@ -1,6 +1,8 @@
 /* 引路人只决定阅读线索与反思问题，不参与排盘、评分或输入数据。
    此模块只读已计算结果；数据缺失时不编造依据。 */
 const GUIDES = Object.freeze({
+  swing: Object.freeze({ name: 'Swing猫师傅', focus: '猫格与直觉',
+    prompt: '先看你的猫格底色：日主就是你的出厂配置，哪一项最像你平时做事的样子？' }),
   diyan: Object.freeze({ name: '焱绒', focus: '行动与优先级',
     prompt: '从眼前最重要的一件事开始：把它拆成一个今天可以尝试的小步骤。' }),
   yuchen: Object.freeze({ name: '玉宸', focus: '节奏与资源',
@@ -29,6 +31,10 @@ export function buildGuidePerspective(themeId, ctx = {}, western = {}) {
   const mercury = text((chart.planets || []).find(p => p?.key === 'Mercury')?.sign?.name);
   let eastern, westernFacts;
   switch (themeId) {
+    case 'swing':
+      eastern = [fact('日主', day), fact('用神', text(ctx?.wx?.ys))];
+      westernFacts = [fact('太阳', sun), fact('月亮', moon)];
+      break;
     case 'diyan':
       eastern = [fact('日主', day), fact('用神', text(ctx?.wx?.ys))];
       westernFacts = [fact('太阳', sun), fact('上升', asc)];

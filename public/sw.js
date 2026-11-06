@@ -1,57 +1,19 @@
 /* 问问大师 PWA：离线可用 + 秒开的缓存策略。
    静态资源带 hash，可长期缓存；HTML 走 network-first 保证更新及时。 */
-const CACHE = 'wenda-cache-v69';
+const CACHE = 'wenda-cache-v70';
 const BASE = './';
 
 const OPTIONAL_ASSETS = [
-  // Keep the previous paths for pages and bookmarks that have not updated yet.
-  'art/luye-fullbody.webp', 'art/luye-fullbody-avatar.webp', 'art/suyan-fullbody.webp', 'art/suyan-fullbody-avatar.webp',
-  'art/wenwen-cinema3d-blink-v2.webp', 'art/moonfox-cinema3d-blink-v2.webp', 'art/diyan-cinema3d-blink-v2.webp', 'art/yuchen-cinema3d-blink-v2.webp', 'art/qinglan-cinema3d-blink-v2.webp', 'art/xingling-cinema3d-blink-v2.webp', 'art/luye-cinema3d-blink-v2.webp', 'art/suyan-cinema3d-blink-v2.webp', 'art/rongrong-cinema3d-blink-v2.webp', 'art/zhiya-cinema3d-blink-v2.webp',
-  'art/wenwen-cinema3d.webp', 'art/wenwen-cinema3d-avatar.webp', 'art/wenwen-cinema3d-blink.webp', 'art/wenwen-cinema3d-speak.webp',
-  'art/moonfox-cinema3d.webp', 'art/moonfox-cinema3d-avatar.webp', 'art/moonfox-cinema3d-blink.webp', 'art/moonfox-cinema3d-speak.webp',
-  'art/diyan-cinema3d.webp', 'art/diyan-cinema3d-avatar.webp', 'art/diyan-cinema3d-blink.webp', 'art/diyan-cinema3d-speak.webp',
-  'art/yuchen-cinema3d.webp', 'art/yuchen-cinema3d-avatar.webp', 'art/yuchen-cinema3d-blink.webp', 'art/yuchen-cinema3d-speak.webp',
-  'art/qinglan-cinema3d.webp', 'art/qinglan-cinema3d-avatar.webp', 'art/qinglan-cinema3d-blink.webp', 'art/qinglan-cinema3d-speak.webp',
-  'art/xingling-cinema3d.webp', 'art/xingling-cinema3d-avatar.webp', 'art/xingling-cinema3d-blink.webp', 'art/xingling-cinema3d-speak.webp',
-  'art/luye-cinema3d.webp', 'art/luye-cinema3d-avatar.webp', 'art/luye-cinema3d-blink.webp', 'art/luye-cinema3d-speak.webp',
-  'art/suyan-cinema3d.webp', 'art/suyan-cinema3d-avatar.webp', 'art/suyan-cinema3d-blink.webp', 'art/suyan-cinema3d-speak.webp',
-  'art/rongrong-cinema3d.webp', 'art/rongrong-cinema3d-avatar.webp', 'art/rongrong-cinema3d-blink.webp', 'art/rongrong-cinema3d-speak.webp',
-  'art/zhiya-cinema3d.webp', 'art/zhiya-cinema3d-avatar.webp', 'art/zhiya-cinema3d-blink.webp', 'art/zhiya-cinema3d-speak.webp',
-  'art/leizi-cinema3d.webp', 'art/leizi-cinema3d-avatar.webp', 'art/leizi-cinema3d-blink.webp', 'art/leizi-cinema3d-speak.webp',
-  'art/muse-cinema3d.webp', 'art/muse-cinema3d-avatar.webp', 'art/muse-cinema3d-blink.webp', 'art/muse-cinema3d-speak.webp',
-  'art/leizi-hall-wide.webp', 'art/leizi-hall-mobile.webp', 'art/muse-hall-wide.webp', 'art/muse-hall-mobile.webp',
+  'art/swing-cinema3d.webp', 'art/swing-cinema3d-avatar.webp', 'art/swing-cinema3d-blink.webp', 'art/swing-cinema3d-speak.webp',
+  'art/swing-hall-wide.webp', 'art/swing-hall-mobile.webp',
   'manifest.webmanifest', 'icon.svg', 'icon-192.png', 'icon-512.png',
   'icon-twins-128.png', 'icon-twins-192.png', 'icon-twins-512.png',
   'icon-twins-maskable-192.png', 'icon-twins-maskable-512.png', 'apple-touch-icon-twins.png',
   'art/master-twin-indigo.webp', 'art/master-twin-rose.webp',
   'art/master-twin-indigo-avatar.webp', 'art/master-twin-rose-avatar.webp',
-  'art/wenwen-reimagined.webp', 'art/wenwen-reimagined-avatar.webp', 'art/wenwen-reimagined-blink.webp', 'art/wenwen-reimagined-speak.webp',
-  'art/wenwen-lantern.webp', 'art/wenwen-cloud-trail.webp', 'art/sacred-study-wide.webp', 'art/sacred-study-mobile.webp',
-  'art/moon-fox-reimagined.webp', 'art/moon-fox-reimagined-avatar.webp', 'art/moon-fox-reimagined-blink.webp', 'art/moon-fox-reimagined-speak.webp',
-  'art/moon-fox-cloud-trail.webp', 'art/moon-fox-study-wide.webp', 'art/moon-fox-study-mobile.webp',
-  'art/earthfire-sovereign.webp', 'art/earthfire-sovereign-avatar.webp', 'art/earthfire-sovereign-blink.webp', 'art/earthfire-sovereign-speak.webp',
-  'art/earthfire-flame-seat.webp', 'art/earthfire-hall-wide.webp', 'art/earthfire-hall-mobile.webp', 'art/earthfire-runes.webp', 'art/earthfire-rune-seal.webp',
-  'art/yuchen-empress.webp', 'art/yuchen-empress-avatar.webp', 'art/yuchen-empress-blink.webp', 'art/yuchen-empress-speak.webp',
-  'art/yuchen-hall-wide.webp', 'art/yuchen-hall-mobile.webp',
-  'art/qinglan-renewed.webp', 'art/qinglan-renewed-avatar.webp', 'art/qinglan-renewed-blink.webp', 'art/qinglan-renewed-speak.webp',
-  'art/qinglan-room-wide.webp', 'art/qinglan-room-mobile.webp', 'art/qinglan-sword.webp',
-  'art/xingling-renewed.webp', 'art/xingling-renewed-avatar.webp', 'art/xingling-renewed-blink.webp', 'art/xingling-renewed-speak.webp',
-  'art/xingling-room-wide.webp', 'art/xingling-room-mobile.webp', 'art/xingling-fan.webp',
-  'art/luye-3d.webp', 'art/luye-3d-avatar.webp', 'art/luye-3d-blink.webp', 'art/luye-3d-speak.webp',
-  'art/luye.webp', 'art/luye-avatar.webp', 'art/luye-blink.webp', 'art/luye-speak.webp',
-  'art/luye-room-wide.webp', 'art/luye-room-mobile.webp', 'art/luye-turntable.svg', 'art/luye-vinyl.svg',
-  'art/suyan-3d.webp', 'art/suyan-3d-avatar.webp', 'art/suyan-3d-blink.webp', 'art/suyan-3d-speak.webp',
-  'art/suyan.webp', 'art/suyan-avatar.webp', 'art/suyan-blink.webp', 'art/suyan-speak.webp',
-  'art/suyan-room-wide.webp', 'art/suyan-room-mobile.webp', 'art/suyan-camera.svg',
-  'art/rongrong.webp', 'art/rongrong-avatar.webp', 'art/rongrong-blink.webp', 'art/rongrong-speak.webp',
-  'art/rongrong-room-wide.webp', 'art/rongrong-room-mobile.webp', 'art/rongrong-pawbell.webp',
-  'art/zhiya.webp', 'art/zhiya-avatar.webp', 'art/zhiya-blink.webp', 'art/zhiya-speak.webp',
-  'art/zhiya-room-wide.webp', 'art/zhiya-room-mobile.webp', 'art/zhiya-crane.webp',
-  'art/awakening-scroll.webp', 'art/awakening-fox-fan.webp', 'art/awakening-phoenix-wing.webp',
-  // Funnel entry: posters/lords keep the four personas readable offline even
-  // when their (large) MP4s are not cached.
-  'art/diyan-lord.webp', 'art/yuchen-lord.webp', 'art/yuebai-lord.webp', 'art/xiyao-lord.webp', 'art/leizi-lord.webp', 'art/muse-lord.webp',
-  'art/diyan-entry2-poster.webp', 'art/diyan-ritual-poster.webp',
+  // Funnel entry: the cat master's poster stays readable offline even
+  // when the (large) MP4s are not cached.
+  'art/swing-lord.webp',
 ];
 
 self.addEventListener('install', (e) => {

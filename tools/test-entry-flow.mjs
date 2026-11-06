@@ -54,11 +54,10 @@ for (const [key, persona] of Object.entries(FUNNEL_PERSONAS)) {
   ok(persona.poster.startsWith('./art/') && persona.video.startsWith('./art/'), `${key} 素材路径为相对地址`);
   ok(themeForPersona(key) === persona.theme, `${key} 主题解析一致`);
 }
-ok(DEFAULT_PERSONA === 'moonfox' && personaFor('unknown').key === DEFAULT_PERSONA, '未知引路人回退月白');
-ok(themeForPersona('xiyao') === 'xingling', '夕瑶不再静默变成焱绒');
-ok(themeForPersona('moonfox') === 'moonfox', '月白对应狐系主题');
-ok(personaFor('diyan').name === '焱绒' && personaFor('diyan').byline.includes('焱绒'), '原 diyan 标识展示焱绒');
-ok(personaFor('yuchen').name === '玉宸' && personaFor('yuchen').byline.includes('玉宸'), '原 yuchen 标识展示玉宸');
+ok(DEFAULT_PERSONA === 'swing' && personaFor('unknown').key === DEFAULT_PERSONA, '未知引路人回退猫师傅');
+ok(Object.keys(FUNNEL_PERSONAS).length === 1 && themeForPersona('swing') === 'swing', '猫号专属版只有一个引路人：Swing猫师傅');
+ok(personaFor('swing').name === 'Swing猫师傅' && personaFor('swing').byline.includes('猫师傅'), 'swing 标识展示Swing猫师傅');
+ok(personaFor('moonfox').key === 'swing' && personaFor('leizi').key === 'swing', '旧引路人标识一律落到猫师傅');
 
 /* ---- 3. 静态不变量：旧的抢屏/强制跳转逻辑不得回流 ---- */
 const html = await read('index.html');
